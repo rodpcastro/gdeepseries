@@ -12,4 +12,4 @@ library = true
 
 [dependencies]
 test-drive = {git = "https://github.com/fortran-lang/test-drive.git"}
-colspecf = {git = "https://github.com/rodpcastro/colspecf.git"}
+ColSpecF = {git = "https://github.com/rodpcastro/colspecf.git"}

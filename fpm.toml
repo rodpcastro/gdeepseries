@@ -1,0 +1,15 @@
+name = "GDeepSeries"
+description = "Series expansions for the 3D infinite-depth free-surface Green function."
+version = "0.1.0"
+license = "MIT"
+author = "Rodrigo Castro"
+maintainer = "rodpcastro18@gmail.com"
+copyright = "Copyright 2025 Rodrigo Castro"
+categories = ["mathematics", "scientific-computing", "hydrodynamics"]
+
+[install]
+library = true
+
+[dependencies]
+test-drive = {git = "https://github.com/fortran-lang/test-drive.git"}
+colspecf = {git = "https://github.com/rodpcastro/colspecf.git"}

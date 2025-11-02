@@ -1,5 +1,5 @@
 # GDeepSeries
-This library contains series expansions for the three-dimensional infinite-depth free-surface Green function, described in the work of *Shan* and *Wu* (2018).
+This library contains series expansions for the three-dimensional infinite-depth free-surface Green function, implemented according to the expressions defined in the work of *Shan* and *Wu* (2018).
 
 ## Dependencies
 GDeepSeries makes use of special functions implemented in [ColSpecF].
@@ -8,7 +8,7 @@ GDeepSeries makes use of special functions implemented in [ColSpecF].
 1. Penghao Shan and Jiameng Wu. Highly precise approximation of free surface Green function and its high order derivatives based on refined subdomains. Brodogradnja, vol. 69, no. 1, pp. 53–70, 2018. <https://doi.org/10.21278/brod69104>
 
 ## License
-The core GDeepSeries code is licensed under the MIT License (see [LICENSE] file).
+The GDeepSeries code is distributed under the MIT License (see [LICENSE] file).
 
 **Important Dependency Notice**: This project depends on [ColSpecF], which is distributed under multiple licenses. Review [ColSpecF's license][csf-license] for details.
 

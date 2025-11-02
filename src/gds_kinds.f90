@@ -22,6 +22,6 @@ module gds_kinds
 
   integer(int8), parameter :: sp = real32  ! Single (4-byte) precision real
   integer(int8), parameter :: dp = real64  ! Double (8-byte) precision real
-  integer(int8), parameter :: wp = real62  ! Working precision real
+  integer(int8), parameter :: wp = real64  ! Working precision real
 
 end module gds_kinds

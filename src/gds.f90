@@ -59,6 +59,8 @@ contains
 
 
   real(wp) function expei(x)
+    ! exp(-x) * Ei(x).
+
     real(wp), intent(in) :: x 
     real(wp) :: xi, sk
     integer(i1) :: k

@@ -7,13 +7,12 @@ module gds
   private
   public :: fsem
 
-  real(wp), parameter :: pi = 3.141592653589793_wp
-  complex(wp), parameter :: iu = (0.0_wp, 1.0_wp)
+  real(wp), parameter :: pi = 3.141592653589793_wp  ! π
 
 contains
 
   function fsem(x, y) result(f)
-    ! Series Expansion Method for F.
+    ! Series Expansion Method for F, Fx and Fxx.
 
     real(wp), intent(in) :: x, y
     real(wp) :: f(3)
@@ -27,15 +26,12 @@ contains
         nterms = 15
       end if
 
-      f = 4.0_wp
-      ! f = fsem4(x, y, nterms)
-
+      f = fsem4(x, y, nterms)
     else if (x >= 6.5_wp .and. y <= 0.5_wp*x) then
       ! SEM3.
+      nterms = 13
       
-      f = 3.0_wp
-      ! f = fsem3(x, y, 13)
-
+      f = fsem3(x, y, nterms)
     else if (y < 15.0_wp .and. y < 2.0_wp*x) then
       ! SEM2.
       if (y > 11.0_wp) then
@@ -49,7 +45,6 @@ contains
       end if
 
       f = fsem2(x, y, nterms)
-
     else
       ! SEM1.
       if (y > 14.0_wp .and. y < 17.0_wp) then
@@ -58,7 +53,6 @@ contains
         nterms = 15
       end if
       
-      ! f = 1.0_wp
       f = fsem1(x, y, nterms)
     end if
   end function fsem
@@ -75,12 +69,12 @@ contains
       sk = 1.0_wp
       expei = 1.0_wp
       do k = 1, 23
-        sk = sk * k * xi
+        sk = sk*k*xi
         expei = expei + sk
       end do
-      expei = expei * xi
+      expei = expei*xi
     else
-      expei = exp(-x) * ei(x)
+      expei = exp(-x)*ei(x)
     end if
   end function expei
 
@@ -111,14 +105,14 @@ contains
     sn2 = 0.0_wp
     sn3 = 0.0_wp
     do n = 1, nterms
-      tn1 = -tn1 * qx2/(n*n)
-      tn2 = tn1 * n
-      tn3 = tn2 * (2*n-1)
+      tn1 = -tn1*qx2/(n*n)
+      tn2 = tn1*n
+      tn3 = tn2*(2*n-1)
 
       tm = yi
       sm = yi
       do m = 2, 2*n
-        tm = tm * (m-1)*yi
+        tm = tm*(m-1)*yi
         sm = sm + tm
       end do
       sm = sm - eey
@@ -128,9 +122,9 @@ contains
       sn3 = sn3 + tn3*sm
     end do
 
-    f(1) = 2.0_wp * (sn1 - eey)
-    f(2) = qxi * sn2
-    f(3) = qxi*xi * sn3
+    f(1) = 2.0_wp*(sn1 - eey)
+    f(2) = qxi*sn2
+    f(3) = qxi*xi*sn3
   end function fsem1
 
 
@@ -145,7 +139,7 @@ contains
     real(wp) :: ey, py, py0, py1
     real(wp) :: tn, sn1, sn2, sn3
     real(wp) :: hg, tg
-    complex(wp) :: a, b, c, z
+    complex(wp) :: in, ha, hb, hc, hz
     integer(i1) :: n
 
     x2 = x*x
@@ -165,29 +159,149 @@ contains
     py0 = py * bessely0(x)
     py1 = py * bessely1(x)
 
-    a = (0.5_wp, 0.0_wp)
-    c = (1.5_wp, 0.0_wp)
-    z = complex(r2xi2, 0.0_wp)
+    in = (1.0_wp, 0.0_wp)
+    ha = (0.5_wp, 0.0_wp)
+    hc = (1.5_wp, 0.0_wp)
+    hz = complex(r2xi2, 0.0_wp)
 
     tn = 1.0_wp
     sn1 = 1.0_wp
     sn2 = 1.0_wp
     sn3 = 0.0_wp
     do n = 1, nterms
-      tn = tn * x/n
-      b = complex(-0.5_wp*n, 0.0_wp)
-      hg = real(iu**-n * hyp2f1(a, b, c, z))
+      tn = tn*x/n
+      in = in*(0.0_wp, -1.0_wp)
+      hb = complex(-0.5_wp*n, 0.0_wp)
+      hg = real(in * hyp2f1(ha, hb, hc, hz), wp)
       tg = tn * hg
 
-      sn1 = sn1 + (n+1) * tg
+      sn1 = sn1 + (n+1)*tg
       sn2 = sn2 + tg
-      sn3 = sn3 + n * tg
+      sn3 = sn3 + n*tg
     end do
 
-    f(1) = -py0 + 2.0_wp * rxi2 * (ey*sn1 - 1.0_wp)
-    f(2) =  py1 + 2.0_wp * (yxiri - rxi*ey*sn2)
-    f(3) =  py0 - py1*xi + 2.0_wp * (yxiri*xi*(y2/r2 - 2.0_wp + y) - rxi2*ey*sn3)
+    f(1) = -py0 + 2.0_wp*rxi2*(ey*sn1 - 1.0_wp)
+    f(2) =  py1 + 2.0_wp*(yxiri - rxi*ey*sn2)
+    f(3) =  py0 - py1*xi + 2.0_wp*(yxiri*xi*(y2/r2 - 2.0_wp + y) - rxi2*ey*sn3)
   end function fsem2
 
+
+  function fsem3(x, y, nterms) result(f)
+    ! Series Expansion Method 3.
+
+    real(wp), intent(in) :: x, y
+    integer(i1), intent(in) :: nterms
+    real(wp) :: f(3)
+    real(wp) :: xi, xi2, xi3, y2, yi, hxi2 
+    real(wp) :: ey, py, oy, phy0, phy1
+    real(wp) :: y2n, cn, tn, sn1, sn2, sn3
+    real(wp) :: nc1, nc2, nc3
+    integer(i1) :: n, dn
+
+    xi = 1.0_wp/x
+    xi2 = xi*xi
+    xi3 = xi2*xi
+    y2 = y*y
+    yi = 1.0_wp/y
+    hxi2 = 0.5_wp*xi2
+    
+    ey = exp(-y)
+    py = pi*ey
+    oy = 1.0_wp - ey
+    phy0 = py*(struveh0(x) + bessely0(x))
+    phy1 = py*(struveh1(x) + bessely1(x))
+
+    y2n = 1.0_wp
+    cn = oy
+    tn = 1.0_wp
+    sn1 = 0.0_wp
+    sn2 = 0.0_wp
+    sn3 = 0.0_wp
+    do n = 1, nterms
+      dn = 2*n
+      tn = -tn * hxi2 * (dn-1)/n
+      y2n = y2n * y2
+      cn = y2n*(1.0_wp - dn*yi) + dn*(dn-1)*cn
+
+      nc1 = tn * cn
+      nc2 = (dn+1) * nc1
+      nc3 = (dn+2) * nc2
+
+      sn1 = sn1 + nc1
+      sn2 = sn2 + nc2
+      sn3 = sn3 + nc3
+    end do
+
+    f(1) = -phy0 - 2.0_wp*xi*(oy + sn1)
+    f(2) =  phy1 - 2.0_wp*ey + 2.0_wp*xi2*(oy + sn2)
+    f(3) =  phy0 - xi*phy1 - 2.0_wp*xi3*(2.0_wp*oy + sn3)
+  end function fsem3
+
+
+  function fsem4(x, y, nterms) result(f)
+    ! Series Expansion Method 4.
+
+    real(wp), intent(in) :: x, y
+    integer(i1), intent(in) :: nterms
+    real(wp) :: f(3)
+    real(wp) :: x2, y2, r2, r, xi, yi, yi2, ri, ri2, ri3
+    real(wp) :: x2ri2, y2ri2, hyr
+    real(wp) :: ey, py, oy, eyi, phy0, phy1
+    real(wp) :: b, b0, b1, bn
+    real(wp) :: tn, sn1, sn2, sn3
+    real(wp) :: nb1, nb2, nb3
+    integer(i1) :: n, dn
+
+    x2 = x*x
+    y2 = y*y
+    r2 = x2 + y2
+    r = sqrt(r2)
+    xi = 1.0_wp/x
+    yi = 1.0_wp/y
+    yi2 = yi*yi
+    ri = 1.0_wp/r
+    ri2 = ri*ri
+    ri3 = ri2*ri
+
+    x2ri2 = x2*ri2
+    y2ri2 = y2*ri2
+    hyr = 0.5_wp*y2ri2
+    
+    ey = exp(-y)
+    py = pi*ey
+    oy = 1.0_wp - ey
+    eyi = ey*yi
+    phy0 = py*(struveh0(x) + bessely0(x))
+    phy1 = py*(struveh1(x) + bessely1(x))
+
+    b = 1.0_wp
+    b0 = oy*yi
+    b1 = yi*((1.0_wp - 2.0_wp*yi2)*ey - 2.0_wp*(yi - yi2))
+
+    tn = -hyr
+    sn1 = tn*b1
+    sn2 = 3.0_wp*sn1
+    sn3 = sn2*(1.0_wp - 5.0_wp*x2ri2)
+    do n = 2, nterms
+      dn = 2*n
+      tn = -tn*hyr*(dn-1)/n
+      b = -1.0_wp*b
+      bn = b*eyi + yi2*dn*((dn-1)*b1 + (dn-2)*b0)
+      b0 = b1
+      b1 = bn
+
+      nb1 = tn*bn
+      nb2 = nb1*(dn+1)
+      nb3 = nb2*(1.0_wp - (dn+3)*x2ri2)
+
+      sn1 = sn1 + nb1
+      sn2 = sn2 + nb2
+      sn3 = sn3 + nb3
+    end do
+
+    f(1) = -phy0 - 2.0_wp*ri*(oy + y*sn1)
+    f(2) =  phy1 - 2.0_wp*ey + 2.0_wp*x*ri3*(oy + y*sn2)
+    f(3) =  phy0 - xi*phy1 + 2.0_wp*ri3*(oy*(1.0_wp - 3.0_wp*x2ri2) + y*sn3)
+  end function fsem4
 
 end module gds

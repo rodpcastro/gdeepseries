@@ -6,10 +6,11 @@ author = "Rodrigo Castro"
 maintainer = "rodpcastro18@gmail.com"
 copyright = "Copyright 2025 Rodrigo Castro"
 categories = ["mathematics", "scientific-computing", "hydrodynamics"]
+homepage = "https://github.com/rodpcastro/gdeepseries"
 
 [install]
 library = true
 
 [dependencies]
 test-drive = {git = "https://github.com/fortran-lang/test-drive.git"}
-ColSpecF = {git = "https://github.com/rodpcastro/colspecf.git"}
+colspecf = {git = "https://github.com/rodpcastro/colspecf.git"}

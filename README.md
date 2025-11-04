@@ -1,5 +1,7 @@
 # GDeepSeries
-This library contains series expansions for the three-dimensional infinite-depth free-surface Green function, implemented according to the expressions defined in the work of *Shan* and *Wu* (2018).
+This Fortran library contains series expansions for the three-dimensional infinite-depth free-surface Green function, implemented according to the expressions defined in the work of *Shan* and *Wu* (2018).
+
+A quick overview of the series expansions and their implementation in python can be found [here][rpcgds].
 
 ## Dependencies
 GDeepSeries makes use of special functions implemented in [ColSpecF].
@@ -16,3 +18,4 @@ The GDeepSeries code is distributed under the MIT License (see [LICENSE] file).
 [colspecf]: https://colspecf.readthedocs.io/
 [license]: https://github.com/rodpcastro/gdeepseries/blob/main/LICENSE
 [csf-license]: https://github.com/rodpcastro/colspecf/blob/main/LICENSE
+[rpcgds]: https://rodpcastro.github.io/posts/0013_3d_inf_depth_fsurface_gfunction/

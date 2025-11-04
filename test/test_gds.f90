@@ -68,6 +68,10 @@ contains
     max_abs_err_fxx = maxval(abs(scp_fxx - gds_fxx))
     max_abs_err = max(max_abs_err_f, max_abs_err_fx, max_abs_err_fxx)
 
+    print *, max_abs_err_f
+    print *, max_abs_err_fx
+    print *, max_abs_err_fxx
+
     call check(error, max_abs_err < 1.0e-8_wp)
 
   end subroutine test_gds

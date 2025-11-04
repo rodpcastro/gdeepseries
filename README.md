@@ -4,7 +4,7 @@ This Fortran library contains series expansions for the three-dimensional infini
 A quick overview of the series expansions and their implementation in Python can be found [here][rpcgds].
 
 # Test
-A simple test was performed to compare the values computed by GDeepSeries against the numerical evaluation of the integral expressions. The results are summarized [here][test].
+A simple test was performed to compare the values computed by GDeepSeries against the numerical evaluation of the integral expressions. The test results are summarized [here][test].
 
 ## Dependencies
 GDeepSeries makes use of special functions implemented in [ColSpecF].

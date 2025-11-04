@@ -1,5 +1,5 @@
 # Test results
-A simple test was performed using [test-drive], a standard Fortran unit test framework. The test consists of obtaining the absolute error between the series expansions' results computed by GDeepSeries and the integral expressions evaluated with [SciPy]. Below there is the maximum absolute error for $F$, $F_X$ and $F_{XX}$, followed by the absolute errors obtained for several points $(X, Y) \in [0.005, 40.0] × [0.005, 40.0]$.
+A simple test was performed using [test-drive], a standard Fortran unit test framework. The test consists of obtaining the absolute error between the series expansions' results computed by GDeepSeries and the integral expressions evaluated with [SciPy]. Below there are the maximum absolute errors for $F$, $F_X$ and $F_{XX}$, followed by the absolute errors obtained for several points $(X, Y) \in [0.005, 40.0] × [0.005, 40.0]$.
 
 $F$ maximum absolute error: $1.32 \times 10^{-9}$
 

@@ -32,16 +32,8 @@ program gds_demo
     end do
   end do
   
-  call plt%initialize(mplot3d=.true., xlabel='X', ylabel='Y', title='$F$')
+  call plt%initialize(mplot3d=.true., xlabel='X', ylabel='Y', title='$F$', figsize=[7, 7])
   call plt%plot_surface(x, y, f, label='', linestyle='', cmap='bone')
   call plt%savefig('example/f.svg')
-
-  call plt%initialize(mplot3d=.true., xlabel='X', ylabel='Y', title='$F_X$')
-  call plt%plot_surface(x, y, fx, label='', linestyle='', cmap='bone')
-  call plt%savefig('example/fx.svg')
-
-  call plt%initialize(mplot3d=.true., xlabel='X', ylabel='Y', title='$F_{XX}$')
-  call plt%plot_surface(x, y, fxx, label='', linestyle='', cmap='bone')
-  call plt%savefig('example/fxx.svg')
 
 end program gds_demo

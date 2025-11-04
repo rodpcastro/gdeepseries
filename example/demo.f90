@@ -1,12 +1,47 @@
 program gds_demo
-! Evaluation of series expressions for F.
+! PLot of F, Fx and Fxx evaluated through series expansions.
 
   use gds_kinds, only: wp
+  use pyplot_module
   use gds
 
-  print '(a, 3(es22.15, 1x))', 'Region 1 F(1.0, 3.0)  = ', fsem(1.0_wp, 3.0_wp)
-  print '(a, 3(es22.15, 1x))', 'Region 2 F(1.0, 1.0)  = ', fsem(1.0_wp, 1.0_wp)
-  print '(a, 3(es22.15, 1x))', 'Region 3 F(7.0, 1.0)  = ', fsem(7.0_wp, 1.0_wp)
-  print '(a, 3(es22.15, 1x))', 'Region 4 F(10.0, 6.0) = ', fsem(10.0_wp, 6.0_wp)
+  implicit none
+  type(pyplot) :: plt
+  integer :: i, j
+  integer, parameter :: nx = 200, ny = 200
+  real(wp) :: xmin, xmax, ymin, ymax, dx, dy
+  real(wp) :: x(nx), y(ny), z(3), f(nx, ny), fx(nx, ny), fxx(nx, ny)
+
+  xmin = 0.1_wp
+  xmax = 40.0_wp
+  dx = (xmax - xmin) / (nx - 1)
+
+  ymin = 0.1_wp
+  ymax = 40.0_wp
+  dy = (ymax - ymin) / (nx - 1)
+
+  x = [(0.1_wp+i*dx, i = 0, nx-1)]
+  y = [(0.1_wp+i*dy, i = 0, ny-1)]
+
+  do j = 1, ny
+    do i = 1, nx
+      z = fsem(x(i), y(j))
+      f(i, j) = z(1)
+      fx(i, j) = z(2)
+      fxx(i, j) = z(3)
+    end do
+  end do
+  
+  call plt%initialize(mplot3d=.true., xlabel='X', ylabel='Y', title='$F$')
+  call plt%plot_surface(x, y, f, label='', linestyle='', cmap='bone')
+  call plt%savefig('example/f.svg')
+
+  call plt%initialize(mplot3d=.true., xlabel='X', ylabel='Y', title='$F_X$')
+  call plt%plot_surface(x, y, fx, label='', linestyle='', cmap='bone')
+  call plt%savefig('example/fx.svg')
+
+  call plt%initialize(mplot3d=.true., xlabel='X', ylabel='Y', title='$F_{XX}$')
+  call plt%plot_surface(x, y, fxx, label='', linestyle='', cmap='bone')
+  call plt%savefig('example/fxx.svg')
 
 end program gds_demo

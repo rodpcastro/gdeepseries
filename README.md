@@ -3,6 +3,9 @@ This Fortran library contains series expansions for the three-dimensional infini
 
 A quick overview of the series expansions and their implementation in Python can be found [here][rpcgds].
 
+# Test
+A simple test was performed to compare the values computed by GDeepSeries against the numerical evaluation of the integral expressions. The results are summarized [here][test].
+
 ## Dependencies
 GDeepSeries makes use of special functions implemented in [ColSpecF].
 
@@ -19,3 +22,4 @@ The GDeepSeries code is distributed under the MIT License (see [LICENSE] file).
 [license]: https://github.com/rodpcastro/gdeepseries/blob/main/LICENSE
 [csf-license]: https://github.com/rodpcastro/colspecf/blob/main/LICENSE
 [rpcgds]: https://rodpcastro.github.io/posts/0013_3d_inf_depth_fsurface_gfunction/
+[test]: https://github.com/rodpcastro/gdeepseries/blob/main/test/README.md

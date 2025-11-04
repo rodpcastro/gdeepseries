@@ -78,5 +78,5 @@ if __name__ == '__main__':
     set_test_points()
     
     elapsed_time = np.array([perf_counter() - start_time])
-    np.save(spdir+'time.npy', elapsed_time)
+    # np.save(spdir+'time.npy', elapsed_time)
     print(f'Elapsed time = {elapsed_time} seconds')

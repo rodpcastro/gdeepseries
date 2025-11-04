@@ -7,9 +7,11 @@ $F_X$ maximum absolute error: $1.94 \times 10^{-9}$
 
 $F_{XX}$ maximum absolute error: $6.42 \times 10^{-9}$
 
-![error_f](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/test/error/f.svg)
-![error_fx](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/test/error/fx.svg)
-![error_fxx](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/test/error/fxx.svg)
+![error_f](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/test/error/errorf.svg)
+
+![error_fx](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/test/error/errorfx.svg)
+
+![error_fxx](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/test/error/errorfxx.svg))
 
 A time comparison was also made to check how advantageous the series expansions are compared to the integral formulas. It was noted that the series expansion method implemented in Fortran is 50 times faster than the integral expressions evaluated with SciPy.
 

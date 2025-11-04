@@ -1,6 +1,6 @@
 module gds
 
-  use gds_kinds, only: i1, wp
+  use gds_kinds, only: i2, wp
   use csf, only: ei, bessely0, bessely1, struveh0, struveh1, hyp2f1
 
   implicit none
@@ -16,7 +16,7 @@ contains
 
     real(wp), intent(in) :: x, y
     real(wp) :: f(3)
-    integer(i1) :: nterms
+    integer(i2) :: nterms
 
     if (x >= 9.5_wp .and. y > 0.5_wp*x) then
       ! SEM4.
@@ -63,7 +63,7 @@ contains
 
     real(wp), intent(in) :: x 
     real(wp) :: xi, sk
-    integer(i1) :: k
+    integer(i2) :: k
 
     xi = 1.0_wp/x
 
@@ -85,14 +85,14 @@ contains
     ! Series Expansion Method 1.
 
     real(wp), intent(in) :: x, y
-    integer(i1), intent(in) :: nterms
+    integer(i2), intent(in) :: nterms
     real(wp) :: f(3)
     real(wp) :: eey
     real(wp) :: xi, yi
     real(wp) :: qxi, qx2
     real(wp) :: tn1, tn2, tn3, sn1, sn2, sn3
     real(wp) :: tm, sm
-    integer(i1) :: n, m
+    integer(i2) :: n, m
 
     eey = expei(y)
 
@@ -134,7 +134,7 @@ contains
     ! Series Expansion Method 2.
 
     real(wp), intent(in) :: x, y
-    integer(i1), intent(in) :: nterms
+    integer(i2), intent(in) :: nterms
     real(wp) :: f(3)
     real(wp) :: x2, y2, r2, r, xi, ri
     real(wp) :: rxi, rxi2, r2xi2, yxiri
@@ -142,7 +142,7 @@ contains
     real(wp) :: tn, sn1, sn2, sn3
     real(wp) :: hg, tg
     complex(wp) :: in, ha, hb, hc, hz
-    integer(i1) :: n
+    integer(i2) :: n
 
     x2 = x*x
     y2 = y*y
@@ -192,13 +192,13 @@ contains
     ! Series Expansion Method 3.
 
     real(wp), intent(in) :: x, y
-    integer(i1), intent(in) :: nterms
+    integer(i2), intent(in) :: nterms
     real(wp) :: f(3)
     real(wp) :: xi, xi2, xi3, y2, yi, hxi2 
     real(wp) :: ey, py, oy, phy0, phy1
     real(wp) :: y2n, cn, tn, sn1, sn2, sn3
     real(wp) :: nc1, nc2, nc3
-    integer(i1) :: n, dn
+    integer(i2) :: n, dn
 
     xi = 1.0_wp/x
     xi2 = xi*xi
@@ -244,7 +244,7 @@ contains
     ! Series Expansion Method 4.
 
     real(wp), intent(in) :: x, y
-    integer(i1), intent(in) :: nterms
+    integer(i2), intent(in) :: nterms
     real(wp) :: f(3)
     real(wp) :: x2, y2, r2, r, xi, yi, yi2, ri, ri2, ri3
     real(wp) :: x2ri2, y2ri2, hyr
@@ -252,7 +252,7 @@ contains
     real(wp) :: b, b0, b1, bn
     real(wp) :: tn, sn1, sn2, sn3
     real(wp) :: nb1, nb2, nb3
-    integer(i1) :: n, dn
+    integer(i2) :: n, dn
 
     x2 = x*x
     y2 = y*y

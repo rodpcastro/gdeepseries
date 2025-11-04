@@ -17,3 +17,11 @@ colspecf = {git = "https://github.com/rodpcastro/colspecf.git"}
 [dev-dependencies]
 test-drive = {git = "https://github.com/fortran-lang/test-drive.git"}
 stdlib = {git="https://github.com/fortran-lang/stdlib", branch="stdlib-fpm"}
+
+[[example]]
+name = "demo"
+source-dir = "example"
+main = "demo.f90"
+
+[example.dependencies]
+pyplot-fortran = {git="https://github.com/jacobwilliams/pyplot-fortran.git"}

@@ -2,7 +2,7 @@ module test_suite
 ! Test GDeepSeries results against integral expressions evaluated with scipy.
 
   use testdrive, only : new_unittest, unittest_type, error_type, check
-  use gds, only: fsem
+  use gds_sem, only: fsem
   use stdlib_io_npy, only: load_npy, save_npy
   use gds_kinds, only: wp
 

@@ -22,7 +22,7 @@ contains
     real(wp) :: dk, dj0, dj1
     real(wp) :: xu, xv, xuu, xvv, xuv, yw, yww
     real(wp) :: fs(3), f, fx, fy, fxx, fyy, fxy
-    real(wp) :: gx, gy, gxx, gyy, gxy
+    complex(wp) :: gx, gy, gxx, gyy, gxy
 
     du = p(1) - q(1)
     dv = p(2) - q(2)

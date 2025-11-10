@@ -25,3 +25,7 @@ main = "demo.f90"
 
 [example.dependencies]
 pyplot-fortran = {git="https://github.com/jacobwilliams/pyplot-fortran.git"}
+
+[[example]]
+name = "gdeep"
+main = "gdeep.f90"

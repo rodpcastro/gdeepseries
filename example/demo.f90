@@ -4,6 +4,7 @@ program gds_demo
   use gds_kinds, only: wp
   use pyplot_module
   use gds_sem, only: fsem
+  use gds, only: gsem
 
   implicit none
   type(pyplot) :: plt

@@ -2,7 +2,7 @@ program gdeep_demo
 ! PLot of infinite-depth free-surface Green function.
 
   use gds_kinds, only: wp
-  use gds, only: gsem
+  use gds, only: gdeep
 
   implicit none
   real(wp) :: f(3), s(3), k0
@@ -12,7 +12,7 @@ program gdeep_demo
   s = [1.0_wp, 1.0_wp, -2.0_wp]
   k0 = 1.0_wp
 
-  call gsem(f, s, k0, g, gradg, hessg)
+  call gdeep(f, s, k0, g, gradg, hessg)
 
   print *, 'g_re', real(g)
   print *, '--------------------------------------------------------------------------'

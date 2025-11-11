@@ -3,7 +3,7 @@ program gds_demo
 
   use gds_kinds, only: wp
   use pyplot_module
-  use gds_sem, only: fsem
+  use gds_fsem, only: fsem
 
   implicit none
   type(pyplot) :: plt

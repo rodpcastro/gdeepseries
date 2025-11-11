@@ -7,11 +7,11 @@ module gds
 
   implicit none
   private
-  public :: gsem
+  public :: gdeep
 
 contains
 
-  subroutine gsem(p, q, k0, g, gradg, hessg)
+  subroutine gdeep(p, q, k0, g, gradg, hessg)
     ! Infinite-depth free-surface Green function.
 
     real(wp), intent(in) :: p(3), q(3), k0
@@ -89,6 +89,6 @@ contains
     hessg(2,1) = hessg(1,2)
     hessg(3,1) = hessg(1,3)
     hessg(3,2) = hessg(2,3)
-  end subroutine gsem
+  end subroutine gdeep
 
 end module gds

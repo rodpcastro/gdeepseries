@@ -1,4 +1,4 @@
-module gds_sem
+module gds_fsem
 
   use gds_kinds, only: i2, wp
   use gds_constants, only: pi
@@ -305,4 +305,4 @@ contains
     f(3) =  phy0 - xi*phy1 + 2.0_wp*ri3*(oy*(1.0_wp - 3.0_wp*x2ri2) + y*sn3)
   end function fsem4
 
-end module gds_sem
+end module gds_fsem

@@ -2,7 +2,7 @@ module gds
 
   use gds_kinds, only: i2, wp
   use gds_constants, only: pi
-  use gds_sem, only: fsem
+  use gds_fsem, only: fsem
   use csf, only: besselj0, besselj1
 
   implicit none

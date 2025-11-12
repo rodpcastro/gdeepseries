@@ -1,7 +1,7 @@
 name = "gdeepseries"
 description = "Series expansions for the 3D infinite-depth free-surface Green function."
 version = "0.1.0"
-license = "LICENSE"
+license = "MIT"
 author = "Rodrigo Castro"
 maintainer = "rodpcastro18@gmail.com"
 copyright = "Copyright 2025 Rodrigo Castro"

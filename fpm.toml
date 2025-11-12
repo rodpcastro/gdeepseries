@@ -1,7 +1,7 @@
 name = "gdeepseries"
 description = "Series expansions for the 3D infinite-depth free-surface Green function."
 version = "0.1.0"
-license = "MIT"
+license = "LICENSE"
 author = "Rodrigo Castro"
 maintainer = "rodpcastro18@gmail.com"
 copyright = "Copyright 2025 Rodrigo Castro"
@@ -18,14 +18,3 @@ colspecf = {git = "https://github.com/rodpcastro/colspecf.git"}
 test-drive = {git = "https://github.com/fortran-lang/test-drive.git"}
 stdlib = {git="https://github.com/fortran-lang/stdlib", branch="stdlib-fpm"}
 
-[[example]]
-name = "demo"
-source-dir = "example"
-main = "demo.f90"
-
-[example.dependencies]
-pyplot-fortran = {git="https://github.com/jacobwilliams/pyplot-fortran.git"}
-
-[[example]]
-name = "gdeep"
-main = "gdeep.f90"

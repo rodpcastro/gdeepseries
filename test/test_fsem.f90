@@ -1,26 +1,28 @@
-module test_suite
-! Test GDeepSeries results against integral expressions evaluated with scipy.
+module fsem_suite
+! Test gds_fsem results against integral expressions evaluated with scipy.
+!
+! (see file f_points.py)
 
   use testdrive, only : new_unittest, unittest_type, error_type, check
-  use gds_sem, only: fsem
-  use stdlib_io_npy, only: load_npy, save_npy
   use gds_kinds, only: wp
+  use gds_fsem, only: fsem
+  use stdlib_io_npy, only: load_npy, save_npy
 
   implicit none
   private
-  public :: collect_gds_suite
+  public :: collect_fsem_suite
 
 contains
 
-  subroutine collect_gds_suite(testsuite)
-  ! Collection of tests.
+  subroutine collect_fsem_suite(testsuite)
+  ! Collection of fsem tests.
 
     type(unittest_type), allocatable, intent(out) :: testsuite(:)
 
-    testsuite = [new_unittest("test_gds", test_gds)]
-  end subroutine collect_gds_suite
+    testsuite = [new_unittest("test_fsem", test_fsem)]
+  end subroutine collect_fsem_suite
 
-  subroutine test_gds(error)
+  subroutine test_fsem(error)
     type(error_type), allocatable, intent(out) :: error
     real(wp), allocatable :: x(:), y(:)
     real(wp), allocatable :: scp_f(:, :), scp_fx(:, :), scp_fxx(:, :)
@@ -68,12 +70,8 @@ contains
     max_abs_err_fxx = maxval(abs(scp_fxx - gds_fxx))
     max_abs_err = max(max_abs_err_f, max_abs_err_fx, max_abs_err_fxx)
 
-    ! print *, max_abs_err_f
-    ! print *, max_abs_err_fx
-    ! print *, max_abs_err_fxx
-
     call check(error, max_abs_err < 1.0e-8_wp)
 
-  end subroutine test_gds
+  end subroutine test_fsem
 
-end module test_suite
+end module fsem_suite

@@ -1,12 +1,14 @@
+# This script plots the error of F, Fx, and Fxx.
 import os
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import ticker
 
-eps = np.finfo(np.float64).eps
 
+eps = np.finfo(np.float64).eps
 pltdir = 'error/'
 os.makedirs(pltdir, exist_ok=True)
+
 
 def plot_error(X, Y, ZI, ZS, title='', fname=''):
     abs_err_Z = np.abs(ZI - ZS)
@@ -49,8 +51,8 @@ if __name__ == '__main__':
     gds_fxx = np.load('gds/fxx.npy').T
 
     plot_error(X, Y, scp_f, gds_f, title=r'$F$ absolute error', fname=pltdir+'errorf')
-    plot_error(X, Y, scp_fx, gds_fx, title=r'$F_x$ absolute error', fname=pltdir+'errorfx')
-    plot_error(X, Y, scp_fxx, gds_fxx, title=r'$F_{xx}$ absolute error', fname=pltdir+'errorfxx')
+    plot_error(X, Y, scp_fx, gds_fx, title=r'$F_X$ absolute error', fname=pltdir+'errorfx')
+    plot_error(X, Y, scp_fxx, gds_fxx, title=r'$F_{XX}$ absolute error', fname=pltdir+'errorfxx')
 
     time_ratio = scp_time[0] / gds_time[0]
     print(f"The series expansion method implemented in Fortran is {time_ratio:.0f} "

@@ -1,16 +1,19 @@
 program tester
-! Test GDeepSeries results against integral expressions evaluated with scipy.
+! Test GDeepSeries results against numerical evaluation with Python.
 !
-! ## References
+! ## Reference
 ! 1. The Fortran Programming Language. 2024. test-drive: The simple 
 !    testing framework. <https://github.com/fortran-lang/test-drive>
 ! 2. P. Virtanen et al. 2020. SciPy 1.0: Fundamental Algorithms for
 !    Scientific Computing in Python. Nat. Methods 17, 3 (Mar.), 261–272.
 !    <https://doi.org/10.1038/s41592-019-0686-2>
+! 3. P. A. Brodtkorb. 2025. numdifftools: Solve automatic numerical differentiation
+!    problems in one or more variables. <https://github.com/pbrod/numdifftools>.
 
   use, intrinsic :: iso_fortran_env, only: error_unit
   use testdrive, only: run_testsuite, new_testsuite, testsuite_type
-  use test_suite, only: collect_gds_suite
+  use fsem_suite, only: collect_fsem_suite
+  use gdeep_suite, only: collect_gdeep_suite
 
   implicit none
   integer :: stat, is
@@ -21,7 +24,10 @@ program tester
 
   stat = 0
 
-  testsuites = [new_testsuite("gds_suite", collect_gds_suite)]
+  testsuites = [ &
+    new_testsuite("fsem_suite", collect_fsem_suite), &
+    new_testsuite("gdeep_suite", collect_gdeep_suite) &
+  ]
 
   do is = 1, size(testsuites)
     write(error_unit, fmt) "Testing:", testsuites(is)%name
@@ -36,7 +42,7 @@ program tester
 contains
 
   subroutine ensure_directory()
-  ! If nonexistent, directory with GDeepSeries results is created.
+  ! If nonexistent, directory with gds_fsem results is created.
 
     implicit none
     logical :: file_exists

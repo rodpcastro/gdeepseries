@@ -19,7 +19,7 @@ contains
     real(wp) :: du, dv, z, du2, dv2, d, di, di3
     real(wp) :: x, y, x2, y2, yt, yt2
     real(wp) :: r, ri, ri3, ri5, rq, rqi, rqi3, rqi5
-    real(wp) :: dk, dj0, dj1
+    real(wp) :: dy, dj0, dj1
     real(wp) :: xu, xv, xuu, xvv, xuv, yw, yww
     real(wp) :: fs(3), f, fx, fy, fxx, fyy, fxy
     complex(wp) :: gx, gy, gxx, gyy, gxy
@@ -49,9 +49,9 @@ contains
     rqi3 = rqi**3
     rqi5 = rqi3*rqi**2
 
-    dk  = 2.0_wp*pi*exp(-y)
-    dj0 = dk*besselj0(x)
-    dj1 = dk*besselj1(x)
+    dy  = 2.0_wp*pi*exp(-y)
+    dj0 = dy*besselj0(x)
+    dj1 = dy*besselj1(x)
 
     xu  = k0*du*di
     xv  = k0*dv*di

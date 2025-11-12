@@ -27,7 +27,7 @@ contains
     real(wp), allocatable :: x(:), y(:)
     real(wp), allocatable :: scp_f(:, :), scp_fx(:, :), scp_fxx(:, :)
     real(wp), allocatable :: gds_f(:, :), gds_fx(:, :), gds_fxx(:, :)
-    real(wp) :: f(3), max_abs_err, max_abs_err_f, max_abs_err_fx, max_abs_err_fxx
+    real(wp) :: max_abs_err, max_abs_err_f, max_abs_err_fx, max_abs_err_fxx
     real(wp) :: time_start, time_finish, time_elapsed(1)
     integer :: i, j, nx, ny
 

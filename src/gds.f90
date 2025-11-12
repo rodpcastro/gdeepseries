@@ -1,6 +1,6 @@
 module gds
 
-  use gds_kinds, only: i2, wp
+  use gds_kinds, only: wp
   use gds_constants, only: pi
   use gds_fsem, only: fsem
   use csf, only: besselj0, besselj1
@@ -21,7 +21,7 @@ contains
     real(wp) :: r, ri, ri3, ri5, rq, rqi, rqi3, rqi5
     real(wp) :: dy, dj0, dj1
     real(wp) :: xu, xv, xuu, xvv, xuv, yw, yww
-    real(wp) :: fs(3), f, fx, fy, fxx, fyy, fxy
+    real(wp) :: f, fx, fy, fxx, fyy, fxy
     complex(wp) :: gx, gy, gxx, gyy, gxy
 
     du = p(1) - q(1)
@@ -59,13 +59,10 @@ contains
     xvv = k0*du2*di3
     xuv = -k0*du*dv*di3
     yw  = -k0
-    yww = 0.0_wp
+    ! yww = 0.0_wp
 
-    fs  = fsem(x, y)
-    f   = fs(1)
-    fx  = fs(2)
+    call fsem(x, y, f, fx, fxx)
     fy  = -2.0_wp*ri - f
-    fxx = fs(3)
     fyy = 2.0_wp*(y*ri3 + ri) + f
     fxy = 2.0_wp*x*ri3 - fx
 
@@ -82,7 +79,7 @@ contains
 
     hessg(1,1) = gx*xuu + gxx*xu**2
     hessg(2,2) = gx*xvv + gxx*xv**2
-    hessg(3,3) = gy*yww + gyy*yw**2
+    hessg(3,3) = gyy*yw**2  ! yww = 0
     hessg(2,3) = gxy*xv*yw
     hessg(1,3) = gxy*xu*yw
     hessg(1,2) = gx*xuv + gxx*xu*xv

@@ -44,10 +44,7 @@ contains
 
     do j = 1, nx
       do i = 1, ny
-        f = fsem(x(j), y(i))
-        gds_f(i, j) = f(1)
-        gds_fx(i, j) = f(2)
-        gds_fxx(i, j) = f(3)
+        call fsem(x(j), y(i), gds_f(i, j), gds_fx(i, j), gds_fxx(i, j))
       end do
     end do
 

@@ -10,11 +10,11 @@ module gds_fsem
 
 contains
 
-  function fsem(x, y) result(f)
+  subroutine fsem(x, y, f, fx, fxx)
     ! Series Expansion Method for F, Fx and Fxx.
 
     real(wp), intent(in) :: x, y
-    real(wp) :: f(3)
+    real(wp), intent(out) :: f, fx, fxx
     integer(i2) :: nterms
 
     if (x >= 9.5_wp .and. y > 0.5_wp*x) then
@@ -25,12 +25,12 @@ contains
         nterms = 15
       end if
 
-      f = fsem4(x, y, nterms)
+      call fsem4(x, y, nterms, f, fx, fxx)
     else if (x >= 6.5_wp .and. y <= 0.5_wp*x) then
       ! SEM3.
       nterms = 13
       
-      f = fsem3(x, y, nterms)
+      call fsem3(x, y, nterms, f, fx, fxx)
     else if (y < 15.0_wp .and. y < 2.0_wp*x) then
       ! SEM2.
       if (y > 11.0_wp) then
@@ -43,7 +43,7 @@ contains
         nterms = 26
       end if
 
-      f = fsem2(x, y, nterms)
+      call fsem2(x, y, nterms, f, fx, fxx)
     else
       ! SEM1.
       if (y > 14.0_wp .and. y < 17.0_wp) then
@@ -52,9 +52,9 @@ contains
         nterms = 15
       end if
       
-      f = fsem1(x, y, nterms)
+      call fsem1(x, y, nterms, f, fx, fxx)
     end if
-  end function fsem
+  end subroutine fsem
 
 
   real(wp) function expei(x)
@@ -80,12 +80,12 @@ contains
   end function expei
 
 
-  function fsem1(x, y, nterms) result(f)
+  subroutine fsem1(x, y, nterms, f, fx, fxx)
     ! Series Expansion Method 1.
 
     real(wp), intent(in) :: x, y
     integer(i2), intent(in) :: nterms
-    real(wp) :: f(3)
+    real(wp), intent(out) :: f, fx, fxx
     real(wp) :: eey
     real(wp) :: xi, yi
     real(wp) :: qxi, qx2
@@ -123,18 +123,18 @@ contains
       sn3 = sn3 + tn3*sm
     end do
 
-    f(1) = 2.0_wp*(sn1 - eey)
-    f(2) = qxi*sn2
-    f(3) = qxi*xi*sn3
-  end function fsem1
+    f   = 2.0_wp*(sn1 - eey)
+    fx  = qxi*sn2
+    fxx = qxi*xi*sn3
+  end subroutine fsem1
 
 
-  function fsem2(x, y, nterms) result(f)
+  subroutine fsem2(x, y, nterms, f, fx, fxx)
     ! Series Expansion Method 2.
 
     real(wp), intent(in) :: x, y
     integer(i2), intent(in) :: nterms
-    real(wp) :: f(3)
+    real(wp), intent(out) :: f, fx, fxx
     real(wp) :: x2, y2, r2, r, xi, ri
     real(wp) :: rxi, rxi2, r2xi2, yxiri
     real(wp) :: ey, py, py0, py1
@@ -181,18 +181,18 @@ contains
       sn3 = sn3 + n*tg
     end do
 
-    f(1) = -py0 + 2.0_wp*rxi2*(ey*sn1 - 1.0_wp)
-    f(2) =  py1 + 2.0_wp*(yxiri - rxi*ey*sn2)
-    f(3) =  py0 - py1*xi + 2.0_wp*(yxiri*xi*(y2/r2 - 2.0_wp + y) - rxi2*ey*sn3)
-  end function fsem2
+    f   = -py0 + 2.0_wp*rxi2*(ey*sn1 - 1.0_wp)
+    fx  =  py1 + 2.0_wp*(yxiri - rxi*ey*sn2)
+    fxx =  py0 - py1*xi + 2.0_wp*(yxiri*xi*(y2/r2 - 2.0_wp + y) - rxi2*ey*sn3)
+  end subroutine fsem2
 
 
-  function fsem3(x, y, nterms) result(f)
+  subroutine fsem3(x, y, nterms, f, fx, fxx)
     ! Series Expansion Method 3.
 
     real(wp), intent(in) :: x, y
     integer(i2), intent(in) :: nterms
-    real(wp) :: f(3)
+    real(wp), intent(out) :: f, fx, fxx
     real(wp) :: xi, xi2, xi3, y2, yi, hxi2 
     real(wp) :: ey, py, oy, phy0, phy1
     real(wp) :: y2n, cn, tn, sn1, sn2, sn3
@@ -233,18 +233,18 @@ contains
       sn3 = sn3 + nc3
     end do
 
-    f(1) = -phy0 - 2.0_wp*xi*(oy + sn1)
-    f(2) =  phy1 - 2.0_wp*ey + 2.0_wp*xi2*(oy + sn2)
-    f(3) =  phy0 - xi*phy1 - 2.0_wp*xi3*(2.0_wp*oy + sn3)
-  end function fsem3
+    f   = -phy0 - 2.0_wp*xi*(oy + sn1)
+    fx  =  phy1 - 2.0_wp*ey + 2.0_wp*xi2*(oy + sn2)
+    fxx =  phy0 - xi*phy1 - 2.0_wp*xi3*(2.0_wp*oy + sn3)
+  end subroutine fsem3
 
 
-  function fsem4(x, y, nterms) result(f)
+  subroutine fsem4(x, y, nterms, f, fx, fxx)
     ! Series Expansion Method 4.
 
     real(wp), intent(in) :: x, y
     integer(i2), intent(in) :: nterms
-    real(wp) :: f(3)
+    real(wp), intent(out) :: f, fx, fxx
     real(wp) :: x2, y2, r2, r, xi, yi, yi2, ri, ri2, ri3
     real(wp) :: x2ri2, y2ri2, hyr
     real(wp) :: ey, py, oy, eyi, phy0, phy1
@@ -300,9 +300,9 @@ contains
       sn3 = sn3 + nb3
     end do
 
-    f(1) = -phy0 - 2.0_wp*ri*(oy + y*sn1)
-    f(2) =  phy1 - 2.0_wp*ey + 2.0_wp*x*ri3*(oy + y*sn2)
-    f(3) =  phy0 - xi*phy1 + 2.0_wp*ri3*(oy*(1.0_wp - 3.0_wp*x2ri2) + y*sn3)
-  end function fsem4
+    f   = -phy0 - 2.0_wp*ri*(oy + y*sn1)
+    fx  =  phy1 - 2.0_wp*ey + 2.0_wp*x*ri3*(oy + y*sn2)
+    fxx =  phy0 - xi*phy1 + 2.0_wp*ri3*(oy*(1.0_wp - 3.0_wp*x2ri2) + y*sn3)
+  end subroutine fsem4
 
 end module gds_fsem

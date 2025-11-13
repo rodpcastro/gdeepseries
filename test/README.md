@@ -13,9 +13,12 @@ $F_{XX}$ maximum absolute error = $6.42 \times 10^{-9}$
 
 ![error_fxx](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/test/error/errorfxx.svg)
 
-A time comparison was also made to check how advantageous the series expansions are compared to the integral formulas. It was noted that the series expansion method implemented in Fortran is 50 times faster than the integral expressions evaluated with SciPy.
+A time comparison was also made to check how advantageous the series expansions are compared to the integral formulas. It was noted that the series expansion method implemented in Fortran is about 50 times faster than the integral expressions evaluated with SciPy.
 
-The second test is the computation of the absolute error of the Green function, its gradient and hessian matrix, for four cases. The values obtained by GDeepSeries are compared against very precise approximations evaluated with [numdifftools].
+The second test is the computation of the absolute error of the Green function, its gradient and hessian matrix, for four cases. The values obtained by GDeepSeries are compared against very precise approximations evaluated with [numdifftools]. The absolute error for each case also satistfies the condition of staying below $10^{-8}$.
+
+> [!NOTE]
+> The tests can be executed by running the command `fpm test`.
 
 ## References
 1. The Fortran Programming Language. 2024. test-drive: The simple testing framework. <https://github.com/fortran-lang/test-drive>

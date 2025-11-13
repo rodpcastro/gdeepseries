@@ -8,10 +8,11 @@
 
 ## Series expansions for $F$, $F_X$ and $F_{XX}$
 
-<!-- ![error_f](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/src/subdomains.svg) -->
-![error_f](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/gtest/src/subdomains.svg)
+<!-- https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/src/subdomains.svg -->
 
-<img src="https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/gtest/src/subdomains.svg" alt="Subdomains" align="center">
+<p align="center">
+<img src="https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/gtest/src/subdomains.svg" alt="Subdomains">
+</p>
 
 ### Series expansion in $D_1$
 

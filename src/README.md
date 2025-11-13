@@ -8,7 +8,10 @@
 
 ## Series expansions for $F$, $F_X$ and $F_{XX}$
 
-### Series expansion for $D_1$
+<!-- ![error_f](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/src/subdomains.svg) -->
+![error_f](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/gtest/src/subdomains.svg)
+
+### Series expansion in $D_1$
 
 $$
 F = -2 e^{-Y} \mathrm{Ei}(Y) + 2 \sum_{n=1}^{\infty} \frac{1}{n!^2} \left(-\frac{X^2}{4}\right)^n
@@ -27,7 +30,7 @@ $$
 
 $\mathrm{Ei}$ is the exponential integral.
 
-### Series expansion for $D_2$
+### Series expansion in $D_2$
 
 $$
 F = -\pi e^{-Y} Y_0(X) - \frac{2R}{X^2} +
@@ -50,7 +53,7 @@ $$
 
 $_2F_1$ is the Gauss hypergeometric function.
 
-### Series expansion for $D_3$
+### Series expansion in $D_3$
 
 $$
 C_0 = 1 - e^{-Y}, \quad C_n = Y^{2n} - 2n Y^{2n-1} + 2n(2n-1)C_{n-1},
@@ -74,7 +77,7 @@ $$
 
 $(2n-1)!!$ is the odd double factorial.
 
-### Series expansion for $D_4$
+### Series expansion in $D_4$
 
 $$
 B_0 = \frac{1-e^{-Y}}{Y},

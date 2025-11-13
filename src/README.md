@@ -11,6 +11,8 @@
 <!-- ![error_f](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/src/subdomains.svg) -->
 ![error_f](https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/gtest/src/subdomains.svg)
 
+<img src="https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/gtest/src/subdomains.svg" alt="Subdomains" align="center">
+
 ### Series expansion in $D_1$
 
 $$

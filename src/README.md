@@ -10,7 +10,6 @@
 
 ### Series expansion for $D_1$
 
-<<<<<<< HEAD
 $$\begin{equation}
 \begin{split}
 F = &-2 e^{-Y} \mathrm{Ei}(Y) \\
@@ -19,8 +18,6 @@ F = &-2 e^{-Y} \mathrm{Ei}(Y) \\
 \end{split}
 \end{equation}$$
 
-=======
->>>>>>> 7800dcfe729b9f92e341b0cd26172100663dc31b
 ### Series expansion for $D_2$
 
 ### Series expansion for $D_3$

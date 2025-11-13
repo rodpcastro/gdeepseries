@@ -6,7 +6,7 @@
 ## Green function, gradient and hessian matrix
 
 
-## Series expansions for $F$, $F_X$ and $F_{XX$
+## Series expansions for $F$, $F_X$ and $F_{XX}$
 
 ### Series expansion for $D_1$
 
@@ -77,8 +77,9 @@ $(2n-1)!!$ is the odd double factorial.
 ### Series expansion for $D_4$
 
 $$
-B_0 = \frac{1-e^{-Y}}{Y}, \quad B_1 = \left(\frac{1}{Y} - \frac{1}{Y^3}\right)e^{-Y} - 2\left(\frac{1}{Y^2} - \frac{1}{Y^3}\right),
-B_n = \frac{(-1)^{n+1}}{Y}e^{-Y} + \frac{2n(2n-1)}{Y^2}B_{n-1} + \frac{4n(n-1)}{Y^2}B_{n-2},
+B_0 = \frac{1-e^{-Y}}{Y},
+\quad B_1 = \left(\frac{1}{Y} - \frac{1}{Y^3}\right)e^{-Y} - 2\left(\frac{1}{Y^2} - \frac{1}{Y^3}\right),
+\quad B_n = \frac{(-1)^{n+1}}{Y}e^{-Y} + \frac{2n(2n-1)}{Y^2}B_{n-1} + \frac{4n(n-1)}{Y^2}B_{n-2},
 $$
 
 $$
@@ -95,5 +96,5 @@ $$
 \frac{\partial^2 F}{\partial X^2} = \pi e^{-Y} \left[H_0(X)+Y_0(X) - \frac{H_1(X)+Y_1(X)}{X}\right] +
 \frac{2(1-e^{-Y})}{R^3} \left(1 - \frac{3X^2}{R^2}\right) +
 \frac{2Y}{R^3} \sum_{n=1}^{\infty} \frac{(-1)^n (2n+1)!!}{2^n n!}
-\left(\frac{Y}{R}\right)^{2n} \left(1 - \frac{X^2 (2n+3)}{R^2}\right) B_n,
+\left(\frac{Y}{R}\right)^{2n} \left(1 - \frac{X^2 (2n+3)}{R^2}\right) B_n.
 $$

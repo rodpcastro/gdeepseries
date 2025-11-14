@@ -167,5 +167,50 @@ $$
 \left(\frac{Y}{R}\right)^{2n} \left(1 - \frac{X^2 (2n+3)}{R^2}\right) B_n.
 $$
 
+## Green function Gradient and Hessian
+The derivatives with respect to the field point coordinates are computed through chain rule as follows
+
+$$
+\frac{\partial G_\infty}{\partial x} = \frac{\partial G_\infty}{\partial X} \frac{\partial X}{\partial x}
+$$
+
+$$
+\frac{\partial G_\infty}{\partial y} = \frac{\partial G_\infty}{\partial X} \frac{\partial X}{\partial y}
+$$
+
+$$
+\frac{\partial G_\infty}{\partial z} = \frac{\partial G_\infty}{\partial Y} \frac{\partial Y}{\partial z}
+$$
+
+$$
+\frac{\partial^2 G_\infty}{\partial x^2} = \frac{\partial G_\infty}{\partial X} \frac{\partial^2 X}{\partial x^2} + 
+\frac{\partial^2 G_\infty}{\partial X^2} \left(\frac{\partial X}{ \partial x} \right)^2
+$$
+
+$$
+\frac{\partial^2 G_\infty}{\partial y^2} = \frac{\partial G_\infty}{\partial X} \frac{\partial^2 X}{\partial y^2} + 
+\frac{\partial^2 G_\infty}{\partial X^2} \left(\frac{\partial X}{ \partial y} \right)^2
+$$
+
+$$
+\frac{\partial^2 G_\infty}{\partial z^2} = \frac{\partial G_\infty}{\partial Y} \frac{\partial^2 Y}{\partial z^2} + 
+\frac{\partial^2 G_\infty}{\partial Y^2} \left(\frac{\partial Y}{ \partial z} \right)^2
+$$
+
+$$
+\frac{\partial^2 G_\infty}{\partial y \partial z} = 
+\frac{\partial^2 G_\infty}{\partial X \partial Y} \frac{\partial X}{\partial y} \frac{\partial Y}{\partial z}
+$$
+
+$$
+\frac{\partial^2 G_\infty}{\partial x \partial z} = 
+\frac{\partial^2 G_\infty}{\partial X \partial Y} \frac{\partial X}{\partial x} \frac{\partial Y}{\partial z}
+$$
+
+$$
+\frac{\partial^2 G_\infty}{\partial x^2} = \frac{\partial G_\infty}{\partial X} \frac{\partial^2 X}{\partial x \partial y} + 
+\frac{\partial^2 G_\infty}{\partial X^2} \frac{\partial X}{ \partial x} \frac{\partial X}{ \partial y}
+$$
+
 ## Reference
 1. Penghao Shan and Jiameng Wu. Highly precise approximation of free surface Green function and its high order derivatives based on refined subdomains. Brodogradnja, vol. 69, no. 1, pp. 53–70, 2018. <https://doi.org/10.21278/brod69104>

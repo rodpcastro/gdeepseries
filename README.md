@@ -20,7 +20,6 @@ The GDeepSeries code is distributed under the MIT License (see [LICENSE] file).
 <!-- links -->
 [colspecf]: https://colspecf.readthedocs.io/
 [src]: https://github.com/rodpcastro/gdeepseries/tree/main/src/README.md#infinite-depth-free-surface-green-function
-[src]: https://github.com/rodpcastro/gdeepseries/tree/main/src/README.md#expressions
 [license]: https://github.com/rodpcastro/gdeepseries/blob/main/LICENSE
 [csf-license]: https://github.com/rodpcastro/colspecf/blob/main/LICENSE
 [rpcgds]: https://rodpcastro.github.io/posts/0013_3d_inf_depth_fsurface_gfunction/

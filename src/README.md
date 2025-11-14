@@ -70,10 +70,8 @@ where $H_n$ is the $n$-th order Struve function and $Y_n$ is the $n$-th order Be
 ## Series expansions for $F$, $F_X$ and $F_{XX}$
 *Shan & Wu (2018)* derived series expansions for $F$, $F_X$ and $F_{XX}$ for four different regions of the first quadrant of the $XY$ plane. The following image depicts these regions $D_i$, for $i=1,\ldots,4$ and the number of terms $N_i$ that are used to approximate $F$ and its derivatives in each region.
 
-<!-- https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/src/subdomains.svg -->
-
 <p align="center">
-<img src="https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/gtest/src/subdomains.svg" alt="Subdomains">
+<img src="https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/src/subdomains.svg" alt="Subdomains">
 </p>
 
 ### Series expansion in $D_1$

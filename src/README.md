@@ -212,10 +212,10 @@ $$
 \frac{\partial^2 G_\infty}{\partial X^2} \frac{\partial X}{ \partial x} \frac{\partial X}{ \partial y}.
 $$
 
-The derivatives of $X$ and $Y$ with respect to $x$, $y$ and $z$ are given below.
+The first and second-order derivatives of $X$ and $Y$ with respect to the field point coordinates are given below.
 
 $$
-\Delta u = x - \xi, \quad \Delta v = y - \eta, \quad r = \sqrt{{\Delta u}^2 + {\Delta v}^2}.
+\Delta u = x - \xi, \quad \Delta v = y - \eta, \quad r = \sqrt{{\Delta u}^2 + {\Delta v}^2},
 $$
 
 $$
@@ -227,11 +227,11 @@ $$
 $$
 
 $$
-\frac{\partial^2 X}{\partial x^2} = \frac{k_0 {\Delta u}^2}{r^3},
+\frac{\partial^2 X}{\partial x^2} = \frac{k_0 {\Delta v}^2}{r^3},
 $$
 
 $$
-\frac{\partial^2 X}{\partial y^2} = \frac{k_0 {\Delta v}^2}{r^3},
+\frac{\partial^2 X}{\partial y^2} = \frac{k_0 {\Delta u}^2}{r^3},
 $$
 
 $$

@@ -26,7 +26,7 @@ $$
 $$
 
 $$
-\frac{\partial^2 G_\infty}{\partial X^2} = \frac{3 k_0 X^2}{\bar{R}^5} + \frac{3 k_0 X^2}{R^5} - \frac{k_0}{\bar{R}^3} - \frac{k_0}{R^3} + k_0 F_{XX} - 2\mathrm{i}\pi s k_0 e^{-Y} \left(J_0(X) + \frac{J_1(X)}{X}\right),
+\frac{\partial^2 G_\infty}{\partial X^2} = \frac{3 k_0 X^2}{\bar{R}^5} + \frac{3 k_0 X^2}{R^5} - \frac{k_0}{\bar{R}^3} - \frac{k_0}{R^3} + k_0 F_{XX} - 2\mathrm{i}\pi s k_0 e^{-Y} \left(J_0(X) - \frac{J_1(X)}{X}\right),
 $$
 
 $$
@@ -37,10 +37,10 @@ $$
 \frac{\partial^2 G_\infty}{\partial X \partial Y} = \frac{3 k_0 X \bar{Y}}{\bar{R}^5} + \frac{3 k_0 X Y}{R^5} + k_0 F_{XY} + 2\mathrm{i}\pi s k_0 e^{-Y} J_1(X),
 $$
 
-where $J_n$ is the $n$-th order Bessel function of the first kind. The variable $s=-1$ when the time component is $e^{\mathrm{i} \omega t}$, and $s=+1$ when the time component is $e^{-\mathrm{i} \omega t}$, where $\omega$ is the pulsating source frequency. $F$ and its derivatives are a function of $X$ and $Y$ given below
+where $J_n$ is the $n$-th order Bessel function of the first kind. The variable $s=-1$ when the time component is $e^{\mathrm{i} \omega t}$, and $s=+1$ when the time component is $e^{-\mathrm{i} \omega t}$, where $\omega$ is the pulsating source frequency. The function $F$ and its derivatives are a function of $X$ and $Y$ given below
 
 $$
-F = & -2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{1}{2}} \,dt - \pi e^{-Y} [H_0(X) + Y_0(X)],
+F = -2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{1}{2}} \,dt - \pi e^{-Y} [H_0(X) + Y_0(X)],
 $$
 
 $$
@@ -48,16 +48,27 @@ $$
 2 e^{-Y} + \pi e^{-Y} [H_1(X) + Y_1(X)],
 $$
 
-$$\eq{
+$$
+\frac{\partial F}{\partial Y} = -\frac{2}{R} - F
+$$
+
+$$
 \frac{\partial^2 F}{\partial X^2} = 2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{5}{2}} (t^2-2X^2) \,dt +
 \frac{1}{3} e^{-Y} X + \frac{\pi}{2} e^{-Y} [H_0(X) + Y_0(X) - H_2(X) - Y_2(X)].
-}$$
+$$
 
-where $H_n$ is the $n$-th order Struve function and $Y_n$ is the $n$-th order Bessel function of the second kind. The derivatives with the respect to $Y$ are related to expressions above, so the focus is on the evaluation of $F$, $F_X$ and $F_{XX}$.
+$$
+\frac{\partial^2 F}{\partial Y^2} = \frac{2 Y}{R^3} + \frac{2}{R} + F
+$$
 
-*Shan & Wu (2018)* derived series expansions for $F$ and its derivatives for four different regions of the first quadrant of the $XY$ plane. The following image depicts these regions $D_i$, for $i=1,\ldots,4$ and the number of terms $N_i$ that are used to approximate $F$ and its derivatives in each region.
+$$
+\frac{\partial^2 F}{\partial X \partial Y} = \frac{2 X}{R^3} - F_X
+$$
+
+where $H_n$ is the $n$-th order Struve function and $Y_n$ is the $n$-th order Bessel function of the second kind. The derivatives with respect to $Y$ are related to the derivatives with respect to $X$, so the focus is on the evaluation of $F$, $F_X$ and $F_{XX}$ through series expansions, as described in the following subtopic.
 
 ## Series expansions for $F$, $F_X$ and $F_{XX}$
+*Shan & Wu (2018)* derived series expansions for $F$, $F_X$ and $F_{XX}$ for four different regions of the first quadrant of the $XY$ plane. The following image depicts these regions $D_i$, for $i=1,\ldots,4$ and the number of terms $N_i$ that are used to approximate $F$ and its derivatives in each region.
 
 <!-- https://raw.githubusercontent.com/rodpcastro/gdeepseries/refs/heads/main/src/subdomains.svg -->
 

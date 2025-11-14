@@ -9,37 +9,31 @@ X = k_0 r, \quad Y = -k_0 Z &, \quad \bar{Y} = Y + 2 k_0 \zeta, \\
 \end{split}
 $$
 
-where $k_0$ is the infinite-depth wave number. Between $p$ and $q$, $r$ is the horizontal distance and $R_{pq}$ is the Euclidian distance. Between $p$ and $\bar{q}$, $|Z|$ is the vertical distance and $R_{p\bar{q}}$ is the Euclidian distance. $X$ and $Y$ are non-negative dimensionless cylindrical coordinates, Rand $R$ is the dimensionless form of $R_{p\bar{q}}$.
+where $k_0$ is the infinite-depth wave number. Between $p$ and $q$, $r$ is the horizontal distance and $\bar{R}$ is the Euclidian distance in dimensionless form. $|Z|$ is the vertical distance between $p$ and the image of $q$ with respect to the horizontal free-surface, while $R$ is the corresponding Euclidian distance in dimensionless form. $X$ and $Y$ are non-negative dimensionless cylindrical coordinates.
 
 The infinite-depth free-surface Green function $G_\infty(p,q)$ can be expressed as
 
-$$\eq{
+$$
 G_\infty(p,q) = \frac{k_0}{\bar{R}} + \frac{k_0}{R} + k_0 F(X,Y) \pm 2\mathrm{i}\pi k_0 e^{-Y} J_0(X),
-}$$
+$$
 
 where $J_0$ is the zero-order Bessel function of the first kind. The $(-)$ sign in the last expression is associated with the time component $e^{\mathrm{i} \omega t}$, while the $(+)$ sign corresponds to $e^{-\mathrm{i} \omega t}$, and $\omega$ is the pulsating source frequency.
 
 The laborious evaluation of $G_\infty$ and its derivatives is translated to computing $F$ and its derivatives:
 
-$$\eq{
-\begin{split}
-F = & -2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{1}{2}} \,dt \\
-& -\pi e^{-Y} [H_0(X) + Y_0(X)],
-\end{split}
-}$$
+$$
+F = & -2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{1}{2}} \,dt -
+\pi e^{-Y} [H_0(X) + Y_0(X)],
+$$
+
+$$
+\frac{\partial F}{\partial X} = & \phantom{-} 2 X e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{3}{2}} \,dt - 
+2 e^{-Y} + \pi e^{-Y} [H_1(X) + Y_1(X)],
+$$
 
 $$\eq{
-\begin{split}
-\frac{\partial F}{\partial X} = & \phantom{-} 2 X e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{3}{2}} \,dt \\
-& -2 e^{-Y} + \pi e^{-Y} [H_1(X) + Y_1(X)],
-\end{split}
-}$$
-
-$$\eq{
-\begin{split}
-\frac{\partial^2 F}{\partial X^2} = & \phantom{-} 2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{5}{2}} (t^2-2X^2) \,dt \\
-& +\frac{1}{3} e^{-Y} X + \frac{\pi}{2} e^{-Y} [H_0(X) + Y_0(X) - H_2(X) - Y_2(X)].
-\end{split}
+\frac{\partial^2 F}{\partial X^2} = & \phantom{-} 2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{5}{2}} (t^2-2X^2) \,dt +
+\frac{1}{3} e^{-Y} X + \frac{\pi}{2} e^{-Y} [H_0(X) + Y_0(X) - H_2(X) - Y_2(X)].
 }$$
 
 where $H_n$ is the $n$-th order Struve function and $Y_n$ is the $n$-th order Bessel function of the second kind. The derivatives with the respect to $Y$ are related to expressions above, so the focus is on the evaluation of $F$, $F_X$ and $F_{XX}$.

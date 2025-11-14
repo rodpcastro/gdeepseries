@@ -1,4 +1,5 @@
 module gds_fsem
+! Series expansions for F, Fx and Fxx.
 
   use gds_kinds, only: i2, wp
   use gds_constants, only: pi

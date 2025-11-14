@@ -1,4 +1,5 @@
 module gds
+! Infinite-depth free-surface Green function.
 
   use gds_kinds, only: wp, i1
   use gds_constants, only: pi
@@ -13,10 +14,31 @@ contains
 
   subroutine gdeep(p, q, k0, g, gradg, hessg, s)
     ! Infinite-depth free-surface Green function.
+    ! 
+    ! Parameters
+    ! ----------
+    ! p : 8-byte array(3)
+    !   Field point.
+    ! q : 8-byte array(3)
+    !   Source point.
+    ! k0 : 8-byte value
+    !   Infinite-depth wavenumber.
+    ! s : 1-byte integer, default=+1
+    !   s = +1 for time component e^{+iωt}, and
+    !   s = -1 for time component e^{-iωt}.
+    !
+    ! Returns
+    ! -------
+    ! g : 8-byte value
+    !   Green function.
+    ! gradg : 8-byte array(3)
+    !   Green function gradient.
+    ! hessg : 8-byte array(3,3)
+    !   Green function Hessian matrix.
 
     real(wp), intent(in) :: p(3), q(3), k0
     complex(wp), intent(out) :: g, gradg(3), hessg(3, 3)
-    integer(i1), intent(in), optional :: s  ! default = 1
+    integer(i1), intent(in), optional :: s  ! default=+1
     integer(i1) :: s_
     real(wp) :: du, dv, z, du2, dv2, d, di, di3
     real(wp) :: x, y, x2, y2, yt, yt2

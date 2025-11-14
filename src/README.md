@@ -167,7 +167,7 @@ $$
 \left(\frac{Y}{R}\right)^{2n} \left(1 - \frac{X^2 (2n+3)}{R^2}\right) B_n.
 $$
 
-## Green function gradient and Hessian
+## Gradient and Hessian
 The derivatives with respect to the field point coordinates are computed through chain rule as follows
 
 $$

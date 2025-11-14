@@ -9,7 +9,7 @@ X = k_0 r, \quad Y = -k_0 Z &, \quad \bar{Y} = Y + 2 k_0 \zeta, \\
 \end{split}
 $$
 
-where $k_0$ is the infinite-depth wave number. Between $p$ and $q$, $r$ is the horizontal distance and $\bar{R}$ is the Euclidian distance in dimensionless form. $|Z|$ is the vertical distance between $p$ and the image of $q$ with respect to the free-surface, while $R$ is the corresponding Euclidian distance in dimensionless form. $X$ and $Y$ are non-negative dimensionless cylindrical coordinates.
+where $k_0$ is the infinite-depth wavenumber. Between $p$ and $q$, $r$ is the horizontal distance and $\bar{R}$ is the Euclidian distance in dimensionless form. $|Z|$ is the vertical distance between $p$ and the image of $q$ with respect to the free-surface, while $R$ is the corresponding Euclidian distance in dimensionless form. $X$ and $Y$ are non-negative dimensionless cylindrical coordinates.
 
 The infinite-depth free-surface Green function $G_\infty$, together with its first and second order derivatives, can be expressed as a funcion of $X$ and $Y$ as follows:
 

@@ -1,7 +1,50 @@
 # Infinite-depth free-surface Green function
+The infinite-depth free-surface Green function represents the spatial component of a velocity potential induced at a field point $p(x, y, z)$ by a pulsating source point $q(\xi, \eta, \zeta)$. Now, we define the following quantities:
 
-## Variables
+$$
+\begin{split}
+r = \sqrt{(x-\xi)^2 + (y-\eta)^2} &, \quad Z = z + \zeta, \\
+X = k_0 r, \quad Y = -k_0 Z &, \quad \bar{Y} = Y + 2 k_0 \zeta, \\
+\bar{R} = \sqrt{X^2 + \bar{Y}^2} &, \quad R = \sqrt{X^2 + Y^2}. \\
+\end{split}
+$$
 
+where $k_0$ is the infinite-depth wave number. Between $p$ and $q$, $r$ is the horizontal distance and $R_{pq}$ is the Euclidian distance. Between $p$ and $\bar{q}$, $|Z|$ is the vertical distance and $R_{p\bar{q}}$ is the Euclidian distance. $X$ and $Y$ are non-negative dimensionless cylindrical coordinates, Rand $R$ is the dimensionless form of $R_{p\bar{q}}$.
+
+The infinite-depth free-surface Green function $G_\infty(p,q)$ can be expressed as
+
+$$\eq{
+G_\infty(p,q) = \frac{k_0}{\bar{R}} + \frac{k_0}{R} + k_0 F(X,Y) \pm 2\mathrm{i}\pi k_0 e^{-Y} J_0(X),
+}$$
+
+where $J_0$ is the zero-order Bessel function of the first kind. The $(-)$ sign in the last expression is associated with the time component $e^{\mathrm{i} \omega t}$, while the $(+)$ sign corresponds to $e^{-\mathrm{i} \omega t}$, and $\omega$ is the pulsating source frequency.
+
+The laborious evaluation of $G_\infty$ and its derivatives is translated to computing $F$ and its derivatives:
+
+$$\eq{
+\begin{split}
+F = & -2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{1}{2}} \,dt \\
+& -\pi e^{-Y} [H_0(X) + Y_0(X)],
+\end{split}
+}$$
+
+$$\eq{
+\begin{split}
+\frac{\partial F}{\partial X} = & \phantom{-} 2 X e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{3}{2}} \,dt \\
+& -2 e^{-Y} + \pi e^{-Y} [H_1(X) + Y_1(X)],
+\end{split}
+}$$
+
+$$\eq{
+\begin{split}
+\frac{\partial^2 F}{\partial X^2} = & \phantom{-} 2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{5}{2}} (t^2-2X^2) \,dt \\
+& +\frac{1}{3} e^{-Y} X + \frac{\pi}{2} e^{-Y} [H_0(X) + Y_0(X) - H_2(X) - Y_2(X)].
+\end{split}
+}$$
+
+where $H_n$ is the $n$-th order Struve function and $Y_n$ is the $n$-th order Bessel function of the second kind. The derivatives with the respect to $Y$ are related to expressions above, so the focus is on the evaluation of $F$, $F_X$ and $F_{XX}$.
+
+*Shan & Wu (2018)* derived series expansions for $F$ and its derivatives for four different regions of the first quadrant of the $XY$ plane. The following image depicts these regions $D_i$, for $i=1,\ldots,4$ and the number of terms $N_i$ that are used to approximate $F$ and its derivatives in each region.
 
 ## Green function, gradient and hessian matrix
 

@@ -1,6 +1,6 @@
 module gds
 
-  use gds_kinds, only: wp
+  use gds_kinds, only: wp, i1
   use gds_constants, only: pi
   use gds_fsem, only: fsem
   use csf, only: besselj0, besselj1
@@ -11,11 +11,13 @@ module gds
 
 contains
 
-  subroutine gdeep(p, q, k0, g, gradg, hessg)
+  subroutine gdeep(p, q, k0, g, gradg, hessg, s)
     ! Infinite-depth free-surface Green function.
 
     real(wp), intent(in) :: p(3), q(3), k0
     complex(wp), intent(out) :: g, gradg(3), hessg(3, 3)
+    integer(i1), intent(in), optional :: s  ! default = 1
+    integer(i1) :: s_
     real(wp) :: du, dv, z, du2, dv2, d, di, di3
     real(wp) :: x, y, x2, y2, yt, yt2
     real(wp) :: r, ri, ri3, ri5, rq, rqi, rqi3, rqi5
@@ -49,7 +51,10 @@ contains
     rqi3 = rqi**3
     rqi5 = rqi3*rqi**2
 
-    dy  = 2.0_wp*pi*exp(-y)
+    s_ = 1_i1
+    if (present(s)) s_ = sign(1_i1, s)
+
+    dy  = -2.0_wp*pi*s_*exp(-y)
     dj0 = dy*besselj0(x)
     dj1 = dy*besselj1(x)
 
@@ -66,12 +71,12 @@ contains
     fyy = 2.0_wp*(y*ri3 + ri) + f
     fxy = 2.0_wp*x*ri3 - fx
 
-    g   = k0*complex(rqi + ri + f, -dj0)
-    gx  = k0*complex(-x*(rqi3 + ri3) + fx, dj1) 
-    gy  = k0*complex(-yt*rqi3 - y*ri3 + fy, dj0)
-    gxx = k0*complex(3.0_wp*x2*(rqi5 + ri5) - rqi3 - ri3 + fxx, dj0 - dj1/x)
-    gyy = k0*complex(3.0_wp*(yt2*rqi5 + y2*ri5) - rqi3 - ri3 + fyy, -dj0)
-    gxy = k0*complex(3.0_wp*x*(yt*rqi5 + y*ri5) + fxy, -dj1)
+    g   = k0*complex(rqi + ri + f, dj0)
+    gx  = k0*complex(-x*(rqi3 + ri3) + fx, -dj1) 
+    gy  = k0*complex(-yt*rqi3 - y*ri3 + fy, -dj0)
+    gxx = k0*complex(3.0_wp*x2*(rqi5 + ri5) - rqi3 - ri3 + fxx, -dj0 + dj1/x)
+    gyy = k0*complex(3.0_wp*(yt2*rqi5 + y2*ri5) - rqi3 - ri3 + fyy, dj0)
+    gxy = k0*complex(3.0_wp*x*(yt*rqi5 + y*ri5) + fxy, dj1)
 
     gradg(1) = gx*xu
     gradg(2) = gx*xv

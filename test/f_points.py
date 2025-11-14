@@ -1,3 +1,4 @@
+# This script creates points and reference values for testing F, Fx and Fxx.
 import os
 import scipy as sc
 import numpy as np

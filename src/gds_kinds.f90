@@ -1,14 +1,5 @@
 module gds_kinds
 ! Kinds for numeric types.
-!
-! Constants:
-!
-! - i1: 1-byte integer
-! - i2: 2-byte integer
-! - i4: 4-byte integer
-! - sp: Single (4-byte) precision real
-! - dp: Double (8-byte) precision real
-! - wp: Working precision real. By default, wp = dp
 
   use, intrinsic :: iso_fortran_env, only: int8, int16, int32, real32, real64
 

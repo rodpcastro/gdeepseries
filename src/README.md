@@ -1,5 +1,5 @@
 # Infinite-depth free-surface Green function
-The infinite-depth free-surface Green function represents the spatial component of a velocity potential induced at a field point $p(x, y, z)$ by a pulsating source point $q(\xi, \eta, \zeta)$. Before presenting the expressions, we define the following quantities
+The infinite-depth free-surface Green function represents the spatial component of a velocity potential induced at a field point $p(x, y, z)$ by a pulsating source point $q(\xi, \eta, \zeta)$. Before presenting the Green function expressions, we define the following quantities
 
 $$
 \begin{split}
@@ -40,32 +40,32 @@ $$
 where $J_n$ is the $n$-th order Bessel function of the first kind. The variable $s=-1$ when the time component is $e^{\mathrm{i} \omega t}$, and $s=+1$ when the time component is $e^{-\mathrm{i} \omega t}$, where $\omega$ is the pulsating source frequency. The function $F$ and its derivatives are a function of $X$ and $Y$ given below
 
 $$
-F = -2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{1}{2}} \,dt - \pi e^{-Y} [H_0(X) + Y_0(X)],
+F = -\pi e^{-Y} [H_0(X) + Y_0(X)] - 2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{1}{2}} \thinspace dt,
 $$
 
 $$
-\frac{\partial F}{\partial X} = 2 X e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{3}{2}} \,dt - 
-2 e^{-Y} + \pi e^{-Y} [H_1(X) + Y_1(X)],
+\frac{\partial F}{\partial X} = -2 e^{-Y} + \pi e^{-Y} [H_1(X) + Y_1(X)] +
+2 X e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{3}{2}} \thinspace dt,
 $$
 
 $$
-\frac{\partial F}{\partial Y} = -\frac{2}{R} - F
+\frac{\partial F}{\partial Y} = -\frac{2}{R} - F,
 $$
 
 $$
-\frac{\partial^2 F}{\partial X^2} = 2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{5}{2}} (t^2-2X^2) \,dt +
-\frac{1}{3} e^{-Y} X + \frac{\pi}{2} e^{-Y} [H_0(X) + Y_0(X) - H_2(X) - Y_2(X)].
+\frac{\partial^2 F}{\partial X^2} = \frac{1}{3} e^{-Y} X + \frac{\pi}{2} e^{-Y} [H_0(X) + Y_0(X) - H_2(X) - Y_2(X)] +
+2 e^{-Y} \int_{0}^{Y} e^t (X^2+t^2)^{-\frac{5}{2}} (t^2-2X^2) \thinspace dt,
 $$
 
 $$
-\frac{\partial^2 F}{\partial Y^2} = \frac{2 Y}{R^3} + \frac{2}{R} + F
+\frac{\partial^2 F}{\partial Y^2} = \frac{2 Y}{R^3} + \frac{2}{R} + F,
 $$
 
 $$
-\frac{\partial^2 F}{\partial X \partial Y} = \frac{2 X}{R^3} - F_X
+\frac{\partial^2 F}{\partial X \partial Y} = \frac{2 X}{R^3} - F_X,
 $$
 
-where $H_n$ is the $n$-th order Struve function and $Y_n$ is the $n$-th order Bessel function of the second kind. The derivatives with respect to $Y$ are related to the derivatives with respect to $X$, so the focus is on the evaluation of $F$, $F_X$ and $F_{XX}$ through series expansions, as described in the following subtopic.
+where $H_n$ is the $n$-th order Struve function and $Y_n$ is the $n$-th order Bessel function of the second kind. From the equations above, it is noticeable that the derivatives with respect to $Y$ are related to $F$ and $F_X$, so the use of the series exansion method is focused only on $F$, $F_X$ and $F_{XX}$, as described in the following subtopic.
 
 ## Series expansions for $F$, $F_X$ and $F_{XX}$
 *Shan & Wu (2018)* derived series expansions for $F$, $F_X$ and $F_{XX}$ for four different regions of the first quadrant of the $XY$ plane. The following image depicts these regions $D_i$, for $i=1,\ldots,4$ and the number of terms $N_i$ that are used to approximate $F$ and its derivatives in each region.
@@ -79,17 +79,17 @@ where $H_n$ is the $n$-th order Struve function and $Y_n$ is the $n$-th order Be
 ### Series expansion in $D_1$
 
 $$
-F = -2 e^{-Y} \mathrm{Ei}(Y) + 2 \sum_{n=1}^{\infty} \frac{1}{n!^2} \left(-\frac{X^2}{4}\right)^n
+F = -2 e^{-Y} \mathrm{Ei}(Y) + 2 \sum_{n=1}^{N_1} \frac{1}{n!^2} \left(-\frac{X^2}{4}\right)^n
 \left[\sum_{m=1}^{2n} \frac{(m-1)!}{Y^m} - e^{-Y} \mathrm{Ei}(Y)\right],
 $$
 
 $$
-\frac{\partial F}{\partial X} = \frac{4}{X} \sum_{n=1}^{\infty} \frac{n}{n!^2} \left(-\frac{X^2}{4}\right)^n
+\frac{\partial F}{\partial X} = \frac{4}{X} \sum_{n=1}^{N_1} \frac{n}{n!^2} \left(-\frac{X^2}{4}\right)^n
 \left[\sum_{m=1}^{2n} \frac{(m-1)!}{Y^m} - e^{-Y} \mathrm{Ei}(Y)\right],
 $$
 
 $$
-\frac{\partial^2 F}{\partial X^2} = \frac{4}{X^2} \sum_{n=1}^{\infty} \frac{n(2n-1)}{n!^2} \left(-\frac{X^2}{4}\right)^n
+\frac{\partial^2 F}{\partial X^2} = \frac{4}{X^2} \sum_{n=1}^{N_1} \frac{n(2n-1)}{n!^2} \left(-\frac{X^2}{4}\right)^n
 \left[\sum_{m=1}^{2n} \frac{(m-1)!}{Y^m} - e^{-Y} \mathrm{Ei}(Y)\right].
 $$
 
@@ -99,21 +99,21 @@ $\mathrm{Ei}$ is the exponential integral.
 
 $$
 F = -\pi e^{-Y} Y_0(X) - \frac{2R}{X^2} +
-\frac{2R}{X^2} e^{-Y} \sum_{n=0}^{\infty} \frac{(n+1)X^n}{n!}
-\mathfrak{Re}\left[\mathrm{i}^{-n}\,_2F_1\left(\frac{1}{2}, -\frac{n}{2}; \frac{3}{2}; \frac{R^2}{X^2}\right)\right],
+\frac{2R}{X^2} e^{-Y} \sum_{n=0}^{N_2} \frac{(n+1)X^n}{n!}
+\mathfrak{Re}\left[\mathrm{i}^{-n}\thinspace _2F_1\left(\frac{1}{2}, -\frac{n}{2}; \frac{3}{2}; \frac{R^2}{X^2}\right)\right],
 $$
 
 $$
 \frac{\partial F}{\partial X} = \pi e^{-Y} Y_1(X) + \frac{2Y}{XR} -
-\frac{2R}{X} e^{-Y} \sum_{n=0}^{\infty} \frac{X^n}{n!}
-\mathfrak{Re}\left[\mathrm{i}^{-n}\,_2F_1\left(\frac{1}{2}, -\frac{n}{2}; \frac{3}{2}; \frac{R^2}{X^2}\right)\right],
+\frac{2R}{X} e^{-Y} \sum_{n=0}^{N_2} \frac{X^n}{n!}
+\mathfrak{Re}\left[\mathrm{i}^{-n}\thinspace _2F_1\left(\frac{1}{2}, -\frac{n}{2}; \frac{3}{2}; \frac{R^2}{X^2}\right)\right],
 $$
 
 $$
 \frac{\partial^2 F}{\partial X^2} = \pi e^{-Y} \left[Y_0(X) - \frac{Y_1(X)}{X} \right] + 
 \frac{2Y}{X^2 R} \left(\frac{Y^2}{R^2} - 2 + Y\right) -
-\frac{2R}{X^2} e^{-Y} \sum_{n=1}^{\infty} \frac{n X^n}{n!}
-\mathfrak{Re}\left[\mathrm{i}^{-n}\,_2F_1\left(\frac{1}{2}, -\frac{n}{2}; \frac{3}{2}; \frac{R^2}{X^2}\right)\right].
+\frac{2R}{X^2} e^{-Y} \sum_{n=1}^{N_2} \frac{n X^n}{n!}
+\mathfrak{Re}\left[\mathrm{i}^{-n}\thinspace _2F_1\left(\frac{1}{2}, -\frac{n}{2}; \frac{3}{2}; \frac{R^2}{X^2}\right)\right].
 $$
 
 $_2F_1$ is the Gauss hypergeometric function.
@@ -126,18 +126,18 @@ $$
 
 $$
 F = -\pi e^{-Y} [H_0(X)+Y_0(X)] - \frac{2(1-e^{-Y})}{X} -
-\frac{2}{X} \sum_{n=1}^{\infty} \frac{(-1)^n (2n-1)!!}{2^n n! X^{2n}} C_n,
+\frac{2}{X} \sum_{n=1}^{N_3} \frac{(-1)^n (2n-1)!!}{2^n n! X^{2n}} C_n,
 $$
 
 $$
 \frac{\partial F}{\partial X} = -2e^{-Y} +\pi e^{-Y} [H_1(X)+Y_1(X)] + \frac{2(1-e^{-Y})}{X^2} +
-\frac{2}{X^2} \sum_{n=1}^{\infty} \frac{(-1)^n (2n+1) (2n-1)!!}{2^n n! X^{2n}} C_n,
+\frac{2}{X^2} \sum_{n=1}^{N_3} \frac{(-1)^n (2n+1) (2n-1)!!}{2^n n! X^{2n}} C_n,
 $$
 
 $$
 \frac{\partial^2 F}{\partial X^2} = 
 \pi e^{-Y} \left[H_0(X)+Y_0(X) - \frac{H_1(X)+Y_1(X)}{X}\right] - \frac{4(1-e^{-Y})}{X^3} -
-\frac{2}{X^3} \sum_{n=1}^{\infty} \frac{(-1)^n (2n+1) (2n+2) (2n-1)!!}{2^n n! X^{2n}} C_n.
+\frac{2}{X^3} \sum_{n=1}^{N_3} \frac{(-1)^n (2n+1) (2n+2) (2n-1)!!}{2^n n! X^{2n}} C_n.
 $$
 
 $(2n-1)!!$ is the odd double factorial.
@@ -152,17 +152,20 @@ $$
 
 $$
 F = -\pi e^{-Y} [H_0(X)+Y_0(X)] - \frac{2(1-e^{-Y})}{R} -
-\frac{2Y}{R} \sum_{n=1}^{\infty} \frac{(-1)^n (2n-1)!!}{2^n n!} \left(\frac{Y}{R}\right)^{2n} B_n,
+\frac{2Y}{R} \sum_{n=1}^{N_4} \frac{(-1)^n (2n-1)!!}{2^n n!} \left(\frac{Y}{R}\right)^{2n} B_n,
 $$
 
 $$
 \frac{\partial F}{\partial X} = -2e^{-Y} +\pi e^{-Y} [H_1(X)+Y_1(X)] + \frac{2X(1-e^{-Y})}{R^3} -
-\frac{2XY}{R^3} \sum_{n=1}^{\infty} \frac{(-1)^n (2n+1)!!}{2^n n!} \left(\frac{Y}{R}\right)^{2n} B_n,
+\frac{2XY}{R^3} \sum_{n=1}^{N_4} \frac{(-1)^n (2n+1)!!}{2^n n!} \left(\frac{Y}{R}\right)^{2n} B_n,
 $$
 
 $$
 \frac{\partial^2 F}{\partial X^2} = \pi e^{-Y} \left[H_0(X)+Y_0(X) - \frac{H_1(X)+Y_1(X)}{X}\right] +
 \frac{2(1-e^{-Y})}{R^3} \left(1 - \frac{3X^2}{R^2}\right) +
-\frac{2Y}{R^3} \sum_{n=1}^{\infty} \frac{(-1)^n (2n+1)!!}{2^n n!}
+\frac{2Y}{R^3} \sum_{n=1}^{N_4} \frac{(-1)^n (2n+1)!!}{2^n n!}
 \left(\frac{Y}{R}\right)^{2n} \left(1 - \frac{X^2 (2n+3)}{R^2}\right) B_n.
 $$
+
+## Reference
+1. Penghao Shan and Jiameng Wu. Highly precise approximation of free surface Green function and its high order derivatives based on refined subdomains. Brodogradnja, vol. 69, no. 1, pp. 53–70, 2018. <https://doi.org/10.21278/brod69104>

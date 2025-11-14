@@ -167,49 +167,83 @@ $$
 \left(\frac{Y}{R}\right)^{2n} \left(1 - \frac{X^2 (2n+3)}{R^2}\right) B_n.
 $$
 
-## Green function Gradient and Hessian
+## Green function gradient and Hessian
 The derivatives with respect to the field point coordinates are computed through chain rule as follows
 
 $$
-\frac{\partial G_\infty}{\partial x} = \frac{\partial G_\infty}{\partial X} \frac{\partial X}{\partial x}
+\frac{\partial G_\infty}{\partial x} = \frac{\partial G_\infty}{\partial X} \frac{\partial X}{\partial x},
 $$
 
 $$
-\frac{\partial G_\infty}{\partial y} = \frac{\partial G_\infty}{\partial X} \frac{\partial X}{\partial y}
+\frac{\partial G_\infty}{\partial y} = \frac{\partial G_\infty}{\partial X} \frac{\partial X}{\partial y},
 $$
 
 $$
-\frac{\partial G_\infty}{\partial z} = \frac{\partial G_\infty}{\partial Y} \frac{\partial Y}{\partial z}
+\frac{\partial G_\infty}{\partial z} = \frac{\partial G_\infty}{\partial Y} \frac{\partial Y}{\partial z},
 $$
 
 $$
 \frac{\partial^2 G_\infty}{\partial x^2} = \frac{\partial G_\infty}{\partial X} \frac{\partial^2 X}{\partial x^2} + 
-\frac{\partial^2 G_\infty}{\partial X^2} \left(\frac{\partial X}{ \partial x} \right)^2
+\frac{\partial^2 G_\infty}{\partial X^2} \left(\frac{\partial X}{ \partial x} \right)^2,
 $$
 
 $$
 \frac{\partial^2 G_\infty}{\partial y^2} = \frac{\partial G_\infty}{\partial X} \frac{\partial^2 X}{\partial y^2} + 
-\frac{\partial^2 G_\infty}{\partial X^2} \left(\frac{\partial X}{ \partial y} \right)^2
+\frac{\partial^2 G_\infty}{\partial X^2} \left(\frac{\partial X}{ \partial y} \right)^2,
 $$
 
 $$
 \frac{\partial^2 G_\infty}{\partial z^2} = \frac{\partial G_\infty}{\partial Y} \frac{\partial^2 Y}{\partial z^2} + 
-\frac{\partial^2 G_\infty}{\partial Y^2} \left(\frac{\partial Y}{ \partial z} \right)^2
+\frac{\partial^2 G_\infty}{\partial Y^2} \left(\frac{\partial Y}{ \partial z} \right)^2,
 $$
 
 $$
 \frac{\partial^2 G_\infty}{\partial y \partial z} = 
-\frac{\partial^2 G_\infty}{\partial X \partial Y} \frac{\partial X}{\partial y} \frac{\partial Y}{\partial z}
+\frac{\partial^2 G_\infty}{\partial X \partial Y} \frac{\partial X}{\partial y} \frac{\partial Y}{\partial z},
 $$
 
 $$
 \frac{\partial^2 G_\infty}{\partial x \partial z} = 
-\frac{\partial^2 G_\infty}{\partial X \partial Y} \frac{\partial X}{\partial x} \frac{\partial Y}{\partial z}
+\frac{\partial^2 G_\infty}{\partial X \partial Y} \frac{\partial X}{\partial x} \frac{\partial Y}{\partial z},
 $$
 
 $$
 \frac{\partial^2 G_\infty}{\partial x^2} = \frac{\partial G_\infty}{\partial X} \frac{\partial^2 X}{\partial x \partial y} + 
-\frac{\partial^2 G_\infty}{\partial X^2} \frac{\partial X}{ \partial x} \frac{\partial X}{ \partial y}
+\frac{\partial^2 G_\infty}{\partial X^2} \frac{\partial X}{ \partial x} \frac{\partial X}{ \partial y}.
+$$
+
+The derivatives of $X$ and $Y$ with respect to $x$, $y$ and $z$ are given below.
+
+$$
+\Delta u = x - \xi, \quad \Delta v = y - \eta, \quad r = \sqrt{{\Delta u}^2 + {\Delta v}^2}.
+$$
+
+$$
+\frac{\partial X}{\partial x} = \frac{k_0 \Delta u}{r},
+$$
+
+$$
+\frac{\partial X}{\partial y} = \frac{k_0 \Delta v}{r},
+$$
+
+$$
+\frac{\partial^2 X}{\partial x^2} = \frac{k_0 {\Delta u}^2}{r^3},
+$$
+
+$$
+\frac{\partial^2 X}{\partial y^2} = \frac{k_0 {\Delta v}^2}{r^3},
+$$
+
+$$
+\frac{\partial^2 X}{\partial x \partial y} = -\frac{k_0 \Delta u \Delta v}{r^3},
+$$
+
+$$
+\frac{\partial Y}{\partial z} = -k_0,
+$$
+
+$$
+\frac{\partial^2 Y}{\partial z^2} = 0.
 $$
 
 ## Reference

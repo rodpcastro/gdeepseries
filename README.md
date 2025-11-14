@@ -1,5 +1,5 @@
 # GDeepSeries
-This Fortran library computes the three-dimensional infinite-depth free-surface Green function according to the series expansions defined in the work of *Shan* and *Wu* (2018).
+This Fortran library computes the three-dimensional infinite-depth free-surface Green function according to the series expansions defined in the work of [*Shan* and *Wu* (2018)](#reference).
 
 An overview of the expressions implemented in this library can be found [here][src]. Alternatively, a Python implementation of the series expansions can be found in this [blog post][rpcgds].
 

@@ -9,7 +9,7 @@ Simple tests were performed to compare the values computed by GDeepSeries agains
 ## Dependencies
 GDeepSeries makes use of special functions implemented in [ColSpecF].
 
-## References
+## Reference
 1. Penghao Shan and Jiameng Wu. Highly precise approximation of free surface Green function and its high order derivatives based on refined subdomains. Brodogradnja, vol. 69, no. 1, pp. 53–70, 2018. <https://doi.org/10.21278/brod69104>
 
 ## License
